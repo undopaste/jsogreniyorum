@@ -1,0 +1,22 @@
+-FONKSİYON KULLANIMI
+
+https://developer.mozilla.org/tr/docs/Web/JavaScript/Guide/Fonksiyonlar
+
+-NESNE KULLANIMI
+
+https://www.bayramucuncu.com/javascript-nesne-kavrami/
+
+-DOM KULANNIMI
+
+https://webmaster.kitchen/dom-document-object-model-nedir/
+
+-ADAM ASMACA
+
+Adam Asmacayla ilgili çalışmalarım hiç çalışmadı ve düzgün olmadı ben de onun yerine bu sitedeki kodu aldım.
+Kodu yorumlayarak anlamaya çalıştım.
+
+https://www.yazilimbilisim.net/javascript/javascript-adam-asmaca-yapimi/
+
+-SEPET UYGULAMASI
+
+https://stackoverflow.com/questions/35114946/shopping-list-javascript-program-text-of-list-items-not-formatting-properly

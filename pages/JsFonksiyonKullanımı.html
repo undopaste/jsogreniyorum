@@ -1,0 +1,52 @@
+<html>
+
+  <body style="background-color: rgb(241, 235, 227);">
+
+  <b><strong><center><h1 style="color: rgb(51, 34, 51);">JAVASCRIPT İLE </h1></center>
+   <center><h1 style="color: rgb(51, 34, 51);">FONSKİYON KULLANIMI </h1></center></strong></b> 
+<ul>
+<h3 style="color: darkorange;">Fonksiyon Tanımlamaları</h3>
+</ul>
+<p>
+    <ul>
+Bir fonksiyon tanımı (fonksiyon betimlemesi, veya fonksiyon ifadesi de denir)  function anahtar kelimesinden sonra aşağıdaki kısımları içerir:
+</ul>
+<ul>
+<br> <li>Fonksiyonun adı.</li>
+<br> <li>Fonksiyonun aldığı parametreler (parantezler ile çevrili ve virgüller ile birbirinden ayrılmış olmalıdırlar).</li>
+<br> <li>Çalıştırılacak JavaScript ifadeleri (süslü parantezler ile çevrilmelidir).</li>
+</ul>
+</p>
+<ul>
+    <P>
+        Örneğin aşağıdaki kodda karesiniAl isimli basit bir fonksiyon tanımlanmıştır:
+    </P>
+    <span style="background-color: rgb(192, 186, 229);">
+    function karesiniAl(sayı) <br>{
+        return sayı * sayı;    }
+    </span>
+</ul>
+<ul>
+    Sayı türünde olduğu gibi ilkel parametreler fonksiyonlara değer ile geçilirler; ilgili değer fonskiyona
+    <br> parametre olarak geçildiğinde parametre değerinin fonksiyonda ayrı bir kopyası alınır eğer 
+    <br>fonksiyon içerisinde parametre değerinde değişik yapılırsa, bu değişiklik sadece kopyalanan
+    <br> değer üzerinde gerçekleşmiştir, fonksiyona geçilen asıl değer değişmez.
+    <br><br> Eğer bir nesneyi (Array veya bir kullanıcı tanımlı nesne gibi ilkel olmayan değer) fonksiyona
+    <br> parametre olarak geçerseniz, nesne fonksiyon içerisinde kopyalanmadığı için nesne üzerinde
+    <br> yapılan değişiklikler fonksiyon dışında da korunur. Aşağıdaki örneği inceleyelim:
+    <span style="background-color: rgb(192, 186, 229);">
+        <br><br>function arabamıDeğiştir(araba) {
+            <br>araba.markası = "Toyota";
+            <br>}
+            <br> <br> var arabam = {markası: "Honda", modeli: "Accord", yılı: 1998};
+            <br>var x, y;
+            <br><br>x = arabam.markası ; // "Honda" değerini getirir
+            <br><br> arabamıDeğiştir(arabam);
+            <br>y = arabam.markası; // "Toyota" değeri döndürülür
+            <br>// (markası özelliği fonksiyon tarafından değiştirilmiştir)
+        </span>
+
+</ul>
+   
+</body>
+</html>
