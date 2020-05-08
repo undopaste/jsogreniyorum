@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Soru Cevap</title>
+</head>
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<button>Başla</button>
+<div class="timer"><h1>Kalan Süre: <span id="sec"></span></h1></div>
+<div class="questions"><h1>Soru: <span></span></h1></div>
+<div class="choices"><ul></ul></div>
+<div class="wins">Doğru:<h1>0</h1></div>
+<div class="losses">Yanlış:<h1>0</h1></div>
+<div class="unanswered">Cevaplanmamış<h1></h1></div>
+
+<script>
+    var questions = {
+    index:0,
+    new: function() {
+        if (questions.index < questionsdb.length) {
+            $(".questions span").text(questionsdb[this.index].question);
+            $(".choices ul").html('');
+            for (const choice of questionsdb[questions.index].choices) {
+                $(".choices ul").append('<li class="snickleFritz" numberIndex="'+questionsdb[this.index].choices.indexOf(choice)+'"><h2>'+choice+'</h2></li>');
+            }
+            timer.start(15);
+        }
+        else {return;}
+    }
+}
+var answers = {
+    correct:0,
+    incorrect:0,
+    unanswered:0,
+    markCorrect: function() {
+        answers.correct++;
+        $(".wins h1").text(answers.correct);
+        questions.index++;
+        questions.new();
+    },
+    markFalse: function() {
+        answers.incorrect++;
+        $(".losses h1").text(answers.incorrect);             
+        questions.index++;
+        questions.new();
+    },
+    markUnanswered: function() {
+        answers.unanswered++;
+        $(".unanswered h1").text(answers.unanswered);             
+        questions.index++;
+        questions.new();                             
+    }
+};
+var timer = {
+    intervalId: 0,
+    running: false,
+    t: 15,
+    start: function(seconds) {
+        if (!timer.running) {
+            timer.t = seconds;
+            timer.intervalId = setInterval(timer.decrement, 1000);
+            timer.running = true;
+        }    
+    },
+    decrement: function() {
+        timer.t--;
+        $(".timer #sec").text(timer.t);
+        if (timer.t === 0) {
+            timer.stop();
+            answers.markUnanswered();
+        }
+    },
+    stop: function() {
+        clearInterval(timer.intervalId);
+        timer.running = false;
+    }    
+};
+
+$(document).on('click','.snickleFritz', function() {
+    timer.stop();
+    if( questions.index >= questionsdb.length ) {return;}
+    var userChoice = Number($(this).attr("numberindex"));
+    if (userChoice === questionsdb[questions.index].answer) {
+        answers.markCorrect();
+    } else {
+        answers.markFalse();
+    }
+});
+
+$('button').click(function() { questions.new() });
+
+var questionsdb = [{
+    question: "Türkiye'nin başkenti neredir?",
+    choices: ["İzmir", "Ankara", "İstanbul"],
+    answer: 1
+}, {
+    question: "8+7=? sorusunun cevabı nedir?",
+    choices: ["17", "13", "15"],
+    answer: 2
+}, {
+    question: "Hangi sayı 2'ye bölünmez?",
+    choices: ["11", "6", "20"],
+    answer: 0
+}, {
+    question: "Deprem ölçen cihazın adı nedir?",
+    choices: ["Barometre", "Sismograf", "Termometre"],
+    answer: 1
+}, {
+    question: "Aşağıdakilerden hangisi yer altında yetişir?",
+    choices: ["Fıstık", "Muz", "Ananas"],
+    answer: 0
+}];
+</script>
+
+
+
+</body>
+</html>
